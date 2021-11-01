@@ -1,0 +1,23 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "Web note taking app with processing on server side",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeanOVery/note-taker.git"
+  },
+  "author": "Sean O'Very",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SeanOVery/note-taker/issues"
+  },
+  "homepage": "https://github.com/SeanOVery/note-taker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
