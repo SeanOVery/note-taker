@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const {readAndAppend, readFromFile} = require('./helpers/fsUtils');
+const {readAndAppend, readFromFile, readAndDelete} = require('./helpers/fsUtils');
 const { v4: uuidv4 } = require('uuid');
 
 const PORT = process.env.PORT || 3001;
@@ -46,6 +46,17 @@ app.post('/api/notes', (req, res) => {
     res.json('Error in posting note');
   }
 });
+
+app.delete('/api/notes/:id', (req, res) => {
+  const id = req.params.id
+  if (id) {
+    readAndDelete(id, './db/db.json')
+    res.json('Successful deletion')
+  } else {
+    res.json('Error deleting note')
+  }
+  
+})
 
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
